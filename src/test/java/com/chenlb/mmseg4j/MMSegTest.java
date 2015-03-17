@@ -18,7 +18,8 @@ public class MMSegTest extends TestCase {
 		txt = "手机电子书    abc   http://www.sjshu.com";
 		txt = "Apple 苹果 MacBook Pro MB991CH/A 13.3m寸宽屏笔记本(Ⅱ,⑩)";
 		//txt = "２００９年ゥスぁま是中 ＡＢｃｃ国абвгαβγδ首次,我的ⅠⅡⅢ在chenёlbēū全国ㄦ范围ㄚㄞㄢ内①ē②㈠㈩⒈⒑发行地方政府债券，";
-		Dictionary dic = Dictionary.getInstance();
+		DictionaryBuilder b = DictionaryBuilder.getInstance();
+		Dictionary dic = b.createDic();
 		Seg seg = null;
 		//seg = new SimpleSeg(dic);
 		seg = new ComplexSeg(dic); 
