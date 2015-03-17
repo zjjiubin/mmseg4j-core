@@ -133,7 +133,8 @@ public class MyTest {
 	@Test
 	@Ignore
 	public void testSeeSogouDic() throws IOException {
-		Dictionary dic = Dictionary.getInstance("sogou");
+		DictionaryBuilder b = DictionaryBuilder.getInstance("sogou");
+		Dictionary dic = b.createDic();
 		Map<Character, CharNode> dict = dic.getDict();
 		long start = now();
 		List<Map.Entry<Character, CharNode>> es = new ArrayList<Map.Entry<Character,CharNode>>(dict.size());
