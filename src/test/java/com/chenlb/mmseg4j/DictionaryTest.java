@@ -19,27 +19,31 @@ public class DictionaryTest {
 	@Test
 	public void testloadDicMemoryUse() {
 		printMemory();
-		Dictionary.getInstance();
+		DictionaryBuilder b = DictionaryBuilder.getInstance();
+		b.createDic();
 		printMemory();
 	}
 
 	@Test
 	public void testloadDic() {
-		Dictionary dic = Dictionary.getInstance();
-		Dictionary dic2 = Dictionary.getInstance();
-		Assert.assertTrue(dic == dic2);
+		DictionaryBuilder dic = DictionaryBuilder.getInstance();
+		Dictionary dic1 = dic.createDic();
+		Dictionary dic2 = dic.createDic();
+		Assert.assertTrue(dic1 == dic2);
 
-		dic.destroy();
+		dic1.destroy();
 		//reload
-		dic2 = Dictionary.getInstance();
-		Assert.assertTrue(dic != dic2);
+		//dic2 = Dictionary.getInstance();
+		//Assert.assertTrue(dic != dic2);
 		dic2.destroy();
 	}
 
 	@Test
 	public void testloadDicByPath() {
-		Dictionary dic = Dictionary.getInstance("src");
-		Dictionary dic2 = Dictionary.getInstance("./src");
+		DictionaryBuilder builder1 = DictionaryBuilder.getInstance("src");
+		DictionaryBuilder builder2 = DictionaryBuilder.getInstance("./src");
+		Dictionary dic = builder1.createDic();
+		Dictionary dic2 = builder2.createDic();
 		Assert.assertTrue(dic == dic2);
 
 		Assert.assertFalse(dic.match("自定义词"));
@@ -49,14 +53,16 @@ public class DictionaryTest {
 
 	@Test
 	public void testloadMultiDic() {
-		Dictionary dic = Dictionary.getInstance();
+		DictionaryBuilder b = DictionaryBuilder.getInstance();
+		Dictionary dic = b.createDic();
 
 		Assert.assertTrue(dic.match("自定义词"));
 	}
 
 	@Test
 	public void testMatch() {
-		Dictionary dic = Dictionary.getInstance();
+		DictionaryBuilder b = DictionaryBuilder.getInstance();
+		Dictionary dic = b.createDic();
 
 		Assert.assertTrue(dic.match("词典"));
 
