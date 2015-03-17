@@ -9,10 +9,7 @@
   <artifactId>mmseg4j-core</artifactId>
   <name>mmseg4j-core</name>
   <url>https://github.com/chenlb/mmseg4j-core</url>
-  <description>MMSEG cor for java chinese analyzer</description>
-  <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
+  <description>MMSEG cor for java chinese 4.ersion 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
@@ -41,7 +38,7 @@
 	<dependency>
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>
-		<version>4.8</version>
+		<version>4.8.1</version>
 		<scope>test</scope>
 	</dependency>
   </dependencies>
