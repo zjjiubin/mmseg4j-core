@@ -5,19 +5,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
+import java.io.Serializable;
 
 import com.chenlb.mmseg4j.ComplexSeg;
 import com.chenlb.mmseg4j.Dictionary;
 import com.chenlb.mmseg4j.MMSeg;
 import com.chenlb.mmseg4j.Seg;
 import com.chenlb.mmseg4j.Word;
+import com.chenlb.mmseg4j.DictionaryBuilder;
 
-public class Complex {
+public class Complex implements Serializable {
 
 	protected Dictionary dic;
 	
 	public Complex() {
-		dic = Dictionary.getInstance();
+		DictionaryBuilder dicBuilder = DictionaryBuilder.getInstance();
+		dic = dicBuilder.createDic();
 	}
 
 	protected Seg getSeg() {
