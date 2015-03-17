@@ -3,13 +3,14 @@ package com.chenlb.mmseg4j;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.Serializable;
 
 /**
  * 所有词都记录在第一个字的结点下.
  * 
  * @author chenlb 2009-2-20 下午11:30:14
  */
-public class CharNode {
+public class CharNode implements Serializable {
 
 	private int freq = -1;	//Degree of Morphemic Freedom of One-Character, 单字才需要
 	private int maxLen = 0;	//wordTail的最长
@@ -77,7 +78,7 @@ public class CharNode {
 		this.maxLen = maxLen;
 	}
 	
-	public static class KeyTree {
+	public static class KeyTree implements Serializable {
 		TreeNode head = new TreeNode(' ');
 		
 		public void add(char[] w) {
@@ -142,7 +143,7 @@ public class CharNode {
 		}
 	}
 	
-	private static class TreeNode {
+	private static class TreeNode implements Serializable {
 		char key;
 		Map<Character, TreeNode> subNodes;
 		boolean alsoLeaf;
